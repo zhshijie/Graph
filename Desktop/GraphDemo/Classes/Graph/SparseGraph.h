@@ -43,6 +43,8 @@ private:
     bool m_bDigraph;
     //下一个有效的索引号
     int m_iNextNodeIndex;
+    //检查边是否唯一的
+    bool UniqueEdge(int from,int to)const;
     
 public:
     
@@ -93,7 +95,7 @@ public:
     bool Load(std::ifstream& stream);
     
     //为新节点的插入清空图
-    void Clear();
+    void Clear(){m_iNextNodeIndex = 0; m_Nodes.clear(); m_Edges.clear();};
     
     
     //客户可能使用的用来存取边和节点的迭代器
